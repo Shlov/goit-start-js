@@ -573,22 +573,196 @@ const products = [
 //   // Change code above this line
 // }
 
-function getAllPropValues(propName) {
-  // Change code below this line
-  const value = []
-  for (let product of products) {
+// function getAllPropValues(propName) {
+//   // Change code below this line
+//   const value = []
+//   for (let product of products) {
     
-      if (product.hasOwnProperty(propName)) {
-      value.push(product[propName])
-      }
-    }
-    return value
-  // Change code above this line
-}
+//       if (product.hasOwnProperty(propName)) {
+//       value.push(product[propName])
+//       }
+//     }
+//     return value
+//   // Change code above this line
+// }
 
 
 
-console.log(getAllPropValues("name"));
-console.log(getAllPropValues("quantity"));
-console.log(getAllPropValues("price"));
-console.log(getAllPropValues("category"))
+// console.log(getAllPropValues("name"));
+// console.log(getAllPropValues("quantity"));
+// console.log(getAllPropValues("price"));
+// console.log(getAllPropValues("category"))
+
+
+// function makeTask(data) {
+//   const completed = false;
+//   const category = "General";
+//   const priority = "Normal";
+//   // Change code below this line
+//   return {completed, category, priority, ...data}
+//   // Change code above this line
+// }
+
+
+// console.log(makeTask({ category: "Homemade", priority: "Low", text: "Take out the trash" }))
+// console.log(makeTask({ category: "Finance", text: "Take interest" }))
+// console.log(makeTask({ priority: "Low", text: "Choose shampoo" }))
+// console.log(makeTask({ text: "Buy bread" }))
+
+
+
+
+
+// 
+
+// const atTheOldToad = {
+//   // Change code below this line
+//   potions() {
+//     return []
+//   }
+
+//   // Change code above this line
+// };
+
+
+
+
+// console.log(atTheOldToad.potions())
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: 'Dragon breath', price: 780 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   // Change code below this line
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(newPotion) {
+//     for (let potion of this.potions) {
+//       console.log(potion.name === newPotion.name)
+//       if (potion.name === newPotion.name) {
+//         console.log(potion.name)
+//         console.log(newPotion.name)
+//         return `Error! Potion ${newPotion.name} is already in your inventory!`;
+//       }
+//     }
+//     console.log(this.potions.push(newPotion));
+//     this.potions.push(newPotion);
+//     return this
+//   },
+//   removePotion(potionName) {
+
+//     for (let potion of this.potions) {
+//       for (let key in potion) {
+//         if (potion[key] === potionName) {
+//           this.potions.splice(this.potions.indexOf(potion), 1);
+//         }
+//       }
+//     }
+//     return `Potion ${potionName} is not in inventory!`;
+
+//   },
+//   updatePotionName(oldName, newName) {
+//     for (let potion of this.potions) {
+//       for (let key in potion) {
+//         if (potion[key] === oldName) {
+//         return potion.name = newName;
+//         }
+//       }    
+//     }
+//     return `Potion ${oldName} is not in inventory!`;
+//   },
+//   // Change code above this line
+// };
+
+
+// console.log(atTheOldToad.addPotion({ name: 'Dragon breath', price: 700 }))
+// console.log(atTheOldToad.addPotion({ name: 'Power potion', price: 270 }))
+// console.log()
+// // console.log(atTheOldToad.removePotion('Speed potion'))
+
+
+
+// 
+
+// const students = [
+//   { name: "Манго", courses: ["математика", "фізика"] },
+//   { name: "Полі", courses: ["інформатика", "математика"] },
+//   { name: "Ківі", courses: ["фізика", "біологія"] },
+// ];
+
+// const allCourses = students.flatMap(student => student.courses);
+// // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
+
+// const uniqueCourses = allCourses.filter(
+//   (course, index, array) => array.indexOf(course) === index
+// );
+
+// // const uniqueCourses = allCourses.filter(
+// //   (course, index, array) => {
+// //     if (array.indexOf(course) === index) {
+      
+// //     }
+    
+// //   };
+// //   )
+
+
+
+
+
+// 
+
+
+const tweets = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+];
+
+const getTags = tweets =>
+  tweets.reduce((allTags, tweet) => {
+    allTags.push(...tweet.tags);
+
+    return allTags;
+  }, []);
+
+const tags = getTags(tweets);
+
+console.log('tags',tags)
+
+// Винесемо callback-функцію окремо, а в reducе передамо посилання на неї.
+// Це стандартна практика, якщо callback-функція досить велика.
+
+// Якщо в об'єкті-акумуляторі acc відсутня своя властивість з ключем tag,
+// то створюємо її і записуємо їй значення 0.
+// В іншому випадку збільшуємо значення на 1.
+const getTagStats = (acc, tag) => {
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+    console.log(tag)
+  }
+
+  acc[tag] += 1;
+
+  return acc;
+};
+
+// Початкове значення акумулятора - це порожній об'єкт {}
+const countTags = tags => tags.reduce(getTagStats, {});
+
+const tagCount = countTags(tags);
+console.log(tagCount);
+
+
+
+
+
+
+console.log()
+console.log()
+console.log()
