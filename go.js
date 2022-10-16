@@ -1,3 +1,53 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------
+
+
 // const users = [
 //     {
 //     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
@@ -134,24 +184,29 @@
 //     return [...string.toLowerCase()].filter((el)=>(el === letter)).length;
 // }
 
-Our football team completed the championship. The result of each match look like "x:y". 
-Results of all matches are recorded in the collection like this: ["3:1", "2:2", "0:1", ...] 
- 
-Write a function – countPoints 
-It should accept a collection of backetball games scores and count the points of our team in the championship. 
-Rules for counting points for each match: 
-• if x > y   - 3 points 
-• if x < y   - 0 point 
-• if x = y   - 1 point 
- 
-For example: 
-console.log(countPoints(['3:1', '1:0', '0:0', '1:2', '4:0', '2:3', '1:1', '0:1', '2:1', '1:0']))  // => 17 
-countPoints(['1:1', '1:2', '2:0', '4:2', '0:1', '2:3', '1:1', '0:1', '1:1', '3:0']) // => 12
 
-function countPoints(array) {
-    const totalarr = array.map(el => el.split(':'));
-    const winArr = totalarr.filter((el) => el[0] > el[1] ).length*3
-    const noWinArr = totalarr.filter((el) => el[0] === el[1] ).length
 
-    return winArr + noWinArr
-}
+// 
+
+
+// Our football team completed the championship. The result of each match look like "x:y". 
+// Results of all matches are recorded in the collection like this: ["3:1", "2:2", "0:1", ...] 
+ 
+// Write a function – countPoints 
+// It should accept a collection of backetball games scores and count the points of our team in the championship. 
+// Rules for counting points for each match: 
+// • if x > y   - 3 points 
+// • if x < y   - 0 point 
+// • if x = y   - 1 point 
+ 
+// For example: 
+// console.log(countPoints(['3:1', '1:0', '0:0', '1:2', '4:0', '2:3', '1:1', '0:1', '2:1', '1:0']))  // => 17 
+// countPoints(['1:1', '1:2', '2:0', '4:2', '0:1', '2:3', '1:1', '0:1', '1:1', '3:0']) // => 12
+
+// function countPoints(array) {
+//     const totalarr = array.map(el => el.split(':'));
+//     const winArr = totalarr.filter((el) => el[0] > el[1] ).length*3
+//     const noWinArr = totalarr.filter((el) => el[0] === el[1] ).length
+
+//     return winArr + noWinArr
+// }
