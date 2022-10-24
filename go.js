@@ -1,3 +1,451 @@
+// 16.10 
+
+// ---------------------------------------------------------------
+// Task 1
+// ---------------------------------------------------------------
+
+// const getSums = (arr) => {
+//     return arr.reduce((total, el, idx) => {
+//         if (!idx) {
+//             total.push(el);
+//             return total
+//         } 
+//         total.push(total[idx-1] + el)
+//         // console.log(el)
+//         // console.log(total)
+//         return total
+//     } ,[])
+// }
+
+// console.log(getSums([1, 2, 3, 4, 5]))
+
+
+// const getSums = (arr) => {
+//     return arr.reduce((total, el, idx) => {
+//         if (!idx) {
+//             total.push(el);
+//             return total
+//         } 
+//         total = [...total, total[idx-1] + el]
+//         // console.log(el)
+//         // console.log(total)
+//         return total
+//     } ,[])
+// }
+
+// console.log(getSums([1, 2, 3, 4, 5]))
+
+// const getSums = (arr) => arr.reduce((total, el, idx) => !idx ? [el] : [...total, total[idx-1] + el] ,[])
+
+// console.log(getSums([1, 2, 3, 4, 5]))
+
+// ---------------------------------------------------------------
+// Task 2
+// ---------------------------------------------------------------
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     console.log(`Adding ${itemName} to inventory`);
+//     this.items.push(itemName);
+//   },
+//   remove(itemName) {
+//     console.log(`Removing ${itemName} from inventory`);
+
+//     this.items = this.items.filter(item => item !== itemName);
+//   },
+// };
+
+// const invokeInventoryAction = function (itemName, action) {
+//   console.log(`Invoking action on ${itemName}`);
+//   action(itemName);
+// };
+
+// invokeInventoryAction('Medkit', inventory.add.bind(inventory));
+// // Invoking action on Medkit
+// // Adding Medkit to inventory
+
+// console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+// invokeInventoryAction('Gas mask', inventory.remove.bind(inventory));
+// // Invoking action on Gas mask
+// // Removing Gas mask from inventory
+
+// console.log(inventory.items); // ['Knife', 'Medkit']
+
+// ---------------------------------------------------------------
+// Task 2/2
+// ---------------------------------------------------------------
+
+// const inventory = {
+//   items: ['Knife', 'Gas mask'],
+//   add(itemName) {
+//     console.log(`Adding ${itemName} to inventory`);
+//     this.items.push(itemName);
+//   },
+//   remove(itemName) {
+//     console.log(`Removing ${itemName} from inventory`);
+
+//     this.items = this.items.filter(item => item !== itemName);
+//   },
+// };
+
+// const invokeInventoryAction = function (itemName, action) {
+//     console.log(`Invoking action on ${itemName}`);
+//     action.call(this, itemName);
+// };
+
+// invokeInventoryAction.call(inventory, 'Medkit', inventory.add);
+
+// // Invoking action on Medkit
+// // Adding Medkit to inventory
+
+// console.log(inventory.items); // ['Knife', 'Gas mask', 'Medkit']
+
+// invokeInventoryAction.call(inventory, 'Gas mask', inventory.remove);
+// // Invoking action on Gas mask
+// // Removing Gas mask from inventory
+
+// console.log(inventory.items); // ['Knife', 'Medkit']
+
+// ---------------------------------------------------------------
+// Task 3
+// ---------------------------------------------------------------
+
+const listOfStudents = [
+    {
+        name: 'John',
+        email: 'john@gmail.com'
+    },
+    {
+        name: 'Jane',
+        email: 'jane@gmail.com'
+    },
+    {
+        name: 'Jack',
+        email: 'jack@gmail.com'
+    },
+    {
+        name: 'Mary',
+        email: 'mary@gmail.com'
+    },
+    {
+        name: 'Robert',
+        email: 'robert@gmail.com'
+    },
+    {
+        name: 'Ann',
+        email: 'ann@gmail.com'
+    },
+    {
+        name: 'Brad',
+        email: 'brad@gmail.com'
+    },
+    {
+        name: 'Lisa',
+        email: 'lisa@gmail.com'
+    },
+    {
+        name: 'Matthew',
+        email: 'matthew@gmail.com'
+    },
+    {
+        name: 'Sandra',
+        email: 'sandra@gmail.com'
+    }
+];
+
+const homeworkResults = [
+    {
+        topic: 'HTML Basics',
+        results: [
+            {
+                email: 'john@gmail.com',
+                success: true
+            },
+            {
+                email: 'jane@gmail.com',
+                success: true
+            },
+            {
+                email: 'jack@gmail.com',
+                success: true
+            },
+            {
+                email: 'mary@gmail.com',
+                success: true
+            },
+            {
+                email: 'robert@gmail.com',
+                success: true
+            },
+            {
+                email: 'ann@gmail.com',
+                success: true
+            },
+            {
+                email: 'brad@gmail.com',
+                success: true
+            },
+            {
+                email: 'lisa@gmail.com',
+                success: true
+            },
+            {
+                email: 'matthew@gmail.com',
+                success: true
+            },
+            {
+                email: 'sandra@gmail.com',
+                success: true
+            }
+        ]
+    },
+    {
+        topic: 'CSS Basics',
+        results: [
+            {
+                email: 'john@gmail.com',
+                success: false
+            },
+            {
+                email: 'jane@gmail.com',
+                success: true
+            },
+            {
+                email: 'jack@gmail.com',
+                success: true
+            },
+            {
+                email: 'mary@gmail.com',
+                success: false
+            },
+            {
+                email: 'robert@gmail.com',
+                success: true
+            },
+            {
+                email: 'ann@gmail.com',
+                success: true
+            },
+            {
+                email: 'brad@gmail.com',
+                success: true
+            },
+            {
+                email: 'lisa@gmail.com',
+                success: false
+            },
+            {
+                email: 'matthew@gmail.com',
+                success: true
+            },
+            {
+                email: 'sandra@gmail.com',
+                success: true
+            }
+        ]
+    },
+    {
+        topic: 'JS Basics',
+        results: [
+            {
+                email: 'john@gmail.com',
+                success: true
+            },
+            {
+                email: 'jane@gmail.com',
+                success: false
+            },
+            {
+                email: 'jack@gmail.com',
+                success: true
+            },
+            {
+                email: 'mary@gmail.com',
+                success: true
+            },
+            {
+                email: 'robert@gmail.com',
+                success: true
+            },
+            {
+                email: 'ann@gmail.com',
+                success: false
+            },
+            {
+                email: 'brad@gmail.com',
+                success: true
+            },
+            {
+                email: 'lisa@gmail.com',
+                success: true
+            },
+            {
+                email: 'matthew@gmail.com',
+                success: false
+            },
+            {
+                email: 'sandra@gmail.com',
+                success: true
+            }
+        ]
+    },
+    {
+        topic: 'DOM',
+        results: [
+            {
+                email: 'john@gmail.com',
+                success: false
+            },
+            {
+                email: 'jane@gmail.com',
+                success: true
+            },
+            {
+                email: 'jack@gmail.com',
+                success: true
+            },
+            {
+                email: 'mary@gmail.com',
+                success: true
+            },
+            {
+                email: 'robert@gmail.com',
+                success: false
+            },
+            {
+                email: 'ann@gmail.com',
+                success: true
+            },
+            {
+                email: 'brad@gmail.com',
+                success: true
+            },
+            {
+                email: 'lisa@gmail.com',
+                success: true
+            },
+            {
+                email: 'matthew@gmail.com',
+                success: false
+            },
+            {
+                email: 'sandra@gmail.com',
+                success: true
+            }
+        ]
+    },
+    {
+        topic: 'AJAX',
+        results: [
+            {
+                email: 'john@gmail.com',
+                success: false
+            },
+            {
+                email: 'jane@gmail.com',
+                success: true
+            },
+            {
+                email: 'jack@gmail.com',
+                success: false
+            },
+            {
+                email: 'mary@gmail.com',
+                success: true
+            },
+            {
+                email: 'robert@gmail.com',
+                success: true
+            },
+            {
+                email: 'ann@gmail.com',
+                success: false
+            },
+            {
+                email: 'brad@gmail.com',
+                success: true
+            },
+            {
+                email: 'lisa@gmail.com',
+                success: true
+            },
+            {
+                email: 'matthew@gmail.com',
+                success: true
+            },
+            {
+                email: 'sandra@gmail.com',
+                success: true
+            }
+        ]
+    }
+];
+
+// 1
+// You should create a function constructor ‘Student’ which you can call with two arguments name and email.
+// Name, email and homeworkResults fields should be hidden from user. 
+// Instance of Student should provide the following methods to get or change it’s state:
+// getName(): returns student’s name.
+// getEmail(): returns student’s email.
+// addHomeworkResult(topic, success): you can call this method with 2 arguments: topic(string) and success(boolean).
+// This method should add new element to student’s homeworkResults property.
+// https://monosnap.com/file/SAcJoJQKPzCgF2xQXvfH3vbKSVb4pc
+
+// 2
+// You should create a function constructor ‘FrontendLab’ which you can call with two arguments students and failedLimit.
+// Instance of FrontendLab should have 2 property fields: failedHomeworksLimit and studentsList. This fields should be hidden from user.
+// Instance of Student should provide the following methods to get or change it’s state.
+// printStudentsList(): this method logs to console list of students with their homeworks results.
+// https://monosnap.com/file/Aq5c2Ull0M1MBPpA49jq6RfXd6jlvJ
+
+// 3
+// addHomeworkResults(homeworkResults): this method can be called with argument homeworkResult, object with 2 fields: topic(string) and results(array of objects with 2 fields: email(string) and success(boolean)). This method should update all student objects in FrontendLab studentsList.
+// printStudentsEligibleForTest(): this method should log to console list of students who didn’t fail more homework, than allowed failedLimit.
+// https://monosnap.com/file/KSh3szl5WrInK9WNmkscElZWRBjQQU
+
+const Studets = function (name, email) {
+    const getHomeworkResults = [];
+    this.getName = function () {
+        return name
+    }
+    this.getEmail = function () {
+        return email
+    }
+    this.getHomeworkResult = function () {
+        return getHomeworkResults
+    }
+    this.addHomeworkResult = function (topic, success) {
+        return getHomeworkResults.push({topic, success})
+    }
+}
+
+const student = new Studets('Mango', 'test@gmail.com')
+console.log(student.getName())
+console.log(student.getEmail())
+student.addHomeworkResult('HTML', true)
+console.log(student.getHomeworkResult())
+
+const FrontendLab = function(failedHomeworksLimit, studentsList) {
+    const upgradedStudentList = studentsList.map(
+        ({ name, email }) => new Studets(name, email)
+    );
+    
+    this.printStudentsList = function() {
+        
+        this.printStudentsList = function () {
+            upgradedStudentList.forEach((student) => {
+                console.log(`name: ${student.getName()}, email: ${student.getEmail()}`);
+                console.log(student.getHomeworkResults());
+            });
+        };
+        
+    }
+}
+
+const htmlLab = new FrontendLab(2, listOfStudents)
+console.log(upgradedStudentList)
 
 
 
@@ -32,20 +480,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ----------------------------------------------------
+// ---------------------------------------------------------------
 
 
 // const users = [
